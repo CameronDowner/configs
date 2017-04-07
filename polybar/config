@@ -175,7 +175,7 @@ time-format = %H:%M
 
 format-charging = Charging: <label-charging>
 format-discharging = Discharging: <label-discharging>
-format-full = Discharging: <label-full>
+format-full = Battery: <label-full>
 
 format-charging-foreground = ${colors.colour_1}
 format-discharging-foreground = ${colors.colour_1}
