@@ -1,0 +1,22 @@
+[push]
+	default = matching
+[core]
+	autocrlf = input
+[alias]
+	# shortcuts
+	st = status
+	a = add
+	cm = checkout master
+	
+	# plurals
+	branches = branch -a
+	stashes = stash list
+
+	# logs
+	graph = log --graph --oneline --decorate --all
+
+	# help
+	oops = reset --soft HEAD^
+	fresh = reset --hard HEAD
+[init]
+	templatedir = ~/.git_template
