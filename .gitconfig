@@ -18,5 +18,3 @@
 	# help
 	oops = reset --soft HEAD^
 	fresh = reset --hard HEAD
-[init]
-	templatedir = ~/.git_template

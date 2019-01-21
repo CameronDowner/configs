@@ -1,18 +1,17 @@
 [settings]
-throttle-output = 5
+throttle-output = 1
 throttle-output-for = 10
 throttle-input-for = 30
 screenchange-reload = false
 
 [colors]
-background 	= #000000
-foreground 	= #C5C8C6
-colour_1	= #707880
-colour_2	= #5F819D
-colour_3	= #CC6666
+background = #1A1E23
+foreground = #C5C8C6
+foreground_alternative = #5F819D
+active = #005b96
+warning	= #CC6666
 
-[bar/laptop]
-monitor = ${env:MONITOR:eDP-1-1}
+[bar/core]
 top = true
 width = 100%
 height = 25
@@ -21,31 +20,31 @@ offset-y = 0
 radius = 0.0
 fixed-center = true
 
+enable-ipc = true
+
 background = ${colors.background}
 foreground =  ${colors.foreground}
 
 line-size = 4
 
 padding-left = 3
-padding-right = 10
+padding-right = 3
 
 module-margin-left = 2.5
 module-margin-right = 2.5
 
-font-0 = Hack:fontformat=truetype:size=9;1
-font-1 = Hack:fontformat=truetype:size=9;1
-font-2 = FontAwesome:fontformat=truetype:size=9;1
+font-0 = Input:fontformat=monospaced:size=9;1
 
 modules-left = i3 xwindow
 modules-center = date
-modules-right = volume battery wireless-network vpn temperature powermenu
+modules-right = volume battery
 
 tray-position = right
-tray-padding = 5
+tray-padding = 0
 tray-offset-y = 0%
 tray-offset-x = 0%
 tray-maxsize = 18
-tray-detached = true
+tray-detached = false
 tray-transparent = false
 tray-color = #1D1F21
 
@@ -59,12 +58,12 @@ label-unfocused-foreground = ${colors.foreground}
 
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-background = ${colors.colour_1}
+label-mode-background = ${colors.foreground_alternative}
 
 label-focused = %index%
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.background}
-label-focused-underline = ${colors.colour_1}
+label-focused-underline = ${colors.active}
 label-focused-padding = 4
 
 label-unfocused = %index%
@@ -77,77 +76,36 @@ label-visible-padding = 3
 label-urgent = %index%
 label-urgent-foreground = ${colors.foreground}
 label-urgent-background = ${colors.background}
-label-urgent-underline = ${colors.colour_3}
+label-urgent-underline = ${colors.warning}
 label-urgent-padding = 2
 
 [module/xwindow]
 type = internal/xwindow
+label-maxlen = 100
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 format = <label>
 format-prefix-foreground = ${colors.foreground}
-format-underline = ${colors.colour_1}
 
-label = %date%, %time%
+label = %date% %time%
 
-date = "%a %B %d"
-date-alt = "%d-%m-%Y"
+date = %a %d %B
 
-time = "%I:%M %p"
-time-alt = "%H:%M"
+time = %H:%M
+time-alt = %H:%M:%S
 
 [module/volume]
 type = internal/volume
 
 format-muted-background = ${colors.background}
 format-volume-background = ${colors.background}
-format-volume = <label-volume> <bar-volume>
+format-volume-foreground = ${colors.foreground_alternative}
+format-volume = Volume: <label-volume>
 label-muted = Muted
-
-bar-volume-width = 15
-bar-volume-foreground = ${colors.foreground}
-bar-volume-gradient = false
-bar-volume-indicator= ~
-bar-volume-indicator-font = 1
-bar-volume-fill = ─
-bar-volume-fill-font = 1
-bar-volume-empty = ─
-bar-volume-empty-font = 1
-bar-volume-empty-foreground = ${colors.colour_2}
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 65
-
-format = <label>
-format-warn = <label-warn>
-
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.colour_3}
-
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 1
-
-label-open = ⚡ Power
-label-open-background = ${colors.background}
-label-open-foreground = ${colors.foreground}
-label-close = ⚡
-label-close-background = ${colors.background}
-label-close-foreground = ${colors.foreground}
-label-separator = " "
-label-separator-foreground = ${colors.foreground}
-
-menu-0-0 = Reboot
-menu-0-0-exec = shutdown -r now
-menu-0-1 = Power Off
-menu-0-1-exec = shutdown now
+label-volume-foreground = ${colors.foreground}
 
 [global/wm]
 margin-top = 5
@@ -167,9 +125,9 @@ format-charging = Charging: <label-charging>
 format-discharging = Discharging: <label-discharging>
 format-full = Battery: <label-full>
 
-format-charging-foreground = ${colors.colour_1}
-format-discharging-foreground = ${colors.colour_1}
-format-full-foreground = ${colors.colour_1}
+format-charging-foreground = ${colors.foreground_alternative}
+format-discharging-foreground = ${colors.foreground_alternative}
+format-full-foreground = ${colors.foreground_alternative}
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
@@ -178,35 +136,3 @@ label-full = Fully charged
 label-charging-foreground = ${colors.foreground}
 label-discharging-foreground = ${colors.foreground}
 label-full-foreground = ${colors.foreground}
-
-[module/wireless-network]
-type = internal/network
-interface = wlp2s0
-
-interval = 5.0
-accumulate-stats = true
-format-connected = Wireless: <label-connected>
-format-connected-foreground = ${colors.colour_1}
-format-disconnected = <label-disconnected>
-
-label-connected = %essid%  %local_ip%
-label-connected-foreground = ${colors.foreground}
-
-label-disconnected = (None)
-label-disconnected-foreground = ${colors.foreground}
-
-[module/vpn]
-type = internal/network
-interface = tun0
-
-interval = 5.0
-accumulate-stats = true
-format-connected = VPN: <label-connected>
-format-connected-foreground = ${colors.colour_1}
-format-disconnected = <label-disconnected>
-
-label-connected = Connected
-label-connected-foreground = ${colors.foreground}
-
-label-disconnected = (None)
-label-disconnected-foreground = ${colors.foreground}

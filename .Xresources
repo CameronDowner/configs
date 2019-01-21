@@ -1,44 +1,45 @@
 ! Rofi Customizations
-rofi.columns: 4
-rofi.color-enabled: true
-rofi.color-window: #1E2831, #008FFF, #008FFF
-rofi.color-normal: #1E2831, #ffffff, #1E2831, #008FFF, #ffffff
-rofi.color-active: #1E2831, #008FFF, #1E2831, #008FFF, #205171
-rofi.color-urgent: #1E2831, #f3843d, #1E2831, #008FFF, #ffc39c
-rofi.location: 0
+
 rofi.fullscreen: false
-rofi.width: 65
-rofi.opacity: 50
-rofi.padding: 20
-rofi.yoffset: 0
-rofi.xoffset: 0
-rofi.fixed-num-lines: true
-rofi.ssh-set-title: true
-rofi.terminal: urxvt
+rofi.separator-style: dash
+rofi.hide-scrollbar: true
+rofi.padding: 10
+rofi.bw: 0
+rofi.lines: 5
+rofi.line-padding: 20
+rofi.font: Input 9
+rofi.columns: 2
+rofi.color-window: #1E2831, #1E2831, #cdcdcd
+rofi.color-normal: #1E2831, #DEDEDE, #1E2831, #1E2831, #008FFF
+rofi.color-active: #1E2831, #008FFF, #1E2831, #1E2831, #008FFF
+rofi.color-urgent: #1E2831, #f3843d, #1E2831, #1E2831, #ffc39c
 
 ! URxvt Customizations
-! This was taken from somewhere, I'll try and find the source
-! Added few customizations
 
-URxvt.font:           xft:terminus:antialias=false:pixelsize=16
+URxvt.font: xft:Input:antialias=false:pixelsize=13
 URxvt.internalBorder: 30
+
 URxvt.scrollBar: false
+
 urxvt*transparent: true
-urxvt*shading: 40
+urxvt*shading: 10
+
 URxvt.foreground: #DEDEDE
+URxvt.background: #000000
+
 URxvt.color0  : #2E3436
-URxvt.color8  : #555753
 URxvt.color1  : #CC0000
-URxvt.color9  : #EF2929
 URxvt.color2  : #4E9A06
-URxvt.color10 : #8AE234
 URxvt.color3  : #C4A000
-URxvt.color11 : #FCE94F
 URxvt.color4  : #3465A4
-URxvt.color12 : #729FCF
 URxvt.color5  : #75507B
-URxvt.color13 : #AD7FA8
 URxvt.color6  : #06989A
-URxvt.color14 : #34E2E2
 URxvt.color7  : #D3D7CF
+URxvt.color8  : #555753
+URxvt.color9  : #EF2929
+URxvt.color10 : #8AE234
+URxvt.color11 : #FCE94F
+URxvt.color12 : #729FCF
+URxvt.color13 : #AD7FA8
+URxvt.color14 : #34E2E2
 URxvt.color15 : #EEEEEC
