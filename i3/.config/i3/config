@@ -161,5 +161,3 @@ client.urgent           #1E2831 #1E2831 #FF4040 #1E2831   #1E2831
 client.placeholder      #1E2831 #1E2831 #FFFFFF #1E2831   #1E2831
 
 client.background       #FFFFFF
-
-force_xinerama yes
