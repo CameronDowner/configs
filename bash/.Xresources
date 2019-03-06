@@ -1,6 +1,7 @@
 ! Rofi Customizations
 
 rofi.fullscreen: false
+rofi.terminal: urxvt
 rofi.separator-style: dash
 rofi.hide-scrollbar: true
 rofi.padding: 10
