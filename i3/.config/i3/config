@@ -14,9 +14,6 @@ exec --no-startup-id rofi -key-run $mod+d -key-window $mod+Shift+d -key-ssh $mod
 
 exec --no-startup-id nm-applet
 
-exec --no-startup-id polybar --reload core
-exec_always --no-startup-id polybar-msg cmd restart
-
 exec --no-startup-id battery-notification
 
 #Core custom key bindings
@@ -161,3 +158,8 @@ client.urgent           #1E2831 #1E2831 #FF4040 #1E2831   #1E2831
 client.placeholder      #1E2831 #1E2831 #FFFFFF #1E2831   #1E2831
 
 client.background       #FFFFFF
+
+bar {
+    status_command ty3status --config /home/cdowner/.config/ty3status/config.yaml
+    position top
+}
