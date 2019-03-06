@@ -1,24 +1,39 @@
 defaults:
   ignoreError: true
   markup: pango
+  color: "#CCCCCC"
+  separatorWidth: 30
 
 blocks:
 - type: module
   module: cpu-usage
   interval: 5
-  prefix: 'CPU: '
-  separator: false
+  prefix: "<span color='#FF0000'>CPU: </span>"
+
+- type: module
+  module: cpu-temp
+  interval: 1
+  params:
+    averageLength: 200
+    pollFrequency: 10
+    safeColor: "#00FF00"
+    warningColor: "#FFFF00"
+    warningTemp: 70
+    dangerColor: "#FF0000"
+    dangerTemp: 80
 
 - type: module
   module: loadavg
   interval: 5
+  prefix: "<span color='#00FF00'>LOAD: </span>"
   params:
     o15: false
 
 - type: module
   module: memory
   interval: 30
+  prefix: "<span color='#48aef2'>MEM: </span>"
 
 - type: module
   module: datetime
-  color: "#FFFFFF"
+  prefix: "<span color='#FFFFFF'>DATE: </span>"
