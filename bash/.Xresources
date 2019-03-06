@@ -16,8 +16,8 @@ rofi.color-urgent: #1E2831, #f3843d, #1E2831, #1E2831, #ffc39c
 
 ! URxvt Customizations
 
-URxvt.font: xft:Input:antialias=false:pixelsize=13
-URxvt.internalBorder: 30
+URxvt.font: xft:Input:antialias=false:pixelsize=11
+URxvt.internalBorder: 20
 
 URxvt.scrollBar: false
 
