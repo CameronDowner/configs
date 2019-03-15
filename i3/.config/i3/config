@@ -1,4 +1,4 @@
-font pango:Input 10
+font pango:Input 9
 
 # set mod as windows key
 set $mod Mod4
