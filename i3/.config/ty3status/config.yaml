@@ -2,38 +2,32 @@ defaults:
   ignoreError: true
   markup: pango
   color: "#CCCCCC"
-  separatorWidth: 30
 
 blocks:
 - type: module
-  module: cpu-usage
-  interval: 5
-  prefix: "<span color='#FF0000'>CPU: </span>"
-
-- type: module
-  module: cpu-temp
+  module: "/home/cdowner/projects/ty3status-module-countdown-to-date/lib/index.js"
   interval: 1
   params:
-    averageLength: 200
-    pollFrequency: 10
-    safeColor: "#00FF00"
-    warningColor: "#FFFF00"
-    warningTemp: 70
-    dangerColor: "#FF0000"
-    dangerTemp: 80
+    endDate: 2019-03-29T23:00:00
 
 - type: module
-  module: loadavg
-  interval: 5
-  prefix: "<span color='#00FF00'>LOAD: </span>"
+  module: battery
+  interval: 300
   params:
-    o15: false
+    chargingIcon: C
+    dischargingIcon: D
+    chargedIcon: G
+    fontAwesome: false
+    urgentLevel: 10
+
+- type: module
+  module: cpu-usage
+  interval: 5
 
 - type: module
   module: memory
   interval: 30
-  prefix: "<span color='#48aef2'>MEM: </span>"
 
 - type: module
   module: datetime
-  prefix: "<span color='#FFFFFF'>DATE: </span>"
+  align: center
