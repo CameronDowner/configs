@@ -1,4 +1,4 @@
-font pango:Input 9
+font pango:Input Mono 9
 
 # set mod as windows key
 set $mod Mod4
@@ -13,7 +13,6 @@ exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/backgrounds/*
 exec --no-startup-id rofi -key-run $mod+d -key-window $mod+Shift+d -key-ssh $mod+Shift+s
 
 exec --no-startup-id nm-applet
-
 exec --no-startup-id battery-notification
 
 #Core custom key bindings
@@ -31,7 +30,7 @@ bindsym $mod+w exec rofi -show window
 
 # Custom Key bindings
 bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec google-chrome
+bindsym $mod+Shift+Return exec firefox
 bindsym $mod+c exec code ~/.config/i3/config
 bindsym $mod+l exec i3lock
 
@@ -57,20 +56,8 @@ bindsym $mod+v split v
 # Fullscreen mode
 bindsym $mod+f fullscreen toggle
 
-# Change container layout
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
-# bindsym $mod+e layout toggle split
-
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# Move focused window to scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
 
 # define workspace tags
 set $tag1 "1"
@@ -108,23 +95,21 @@ bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag10
 
-# reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Are you sure you want to exit i3?' -b 'Yes' 'i3-msg exit'"
-
-# class                 border  backgr. text    indicator child_border
-client.focused          #008FFF #1E2831 #008FFF #1E2831   #1E2831
-client.focused_inactive #888888 #1E2831 #888888 #1E2831   #1E2831
-client.unfocused        #888888 #1E2831 #888888 #1E2831   #1E2831
-client.urgent           #1E2831 #1E2831 #FF4040 #1E2831   #1E2831
-client.placeholder      #1E2831 #1E2831 #FFFFFF #1E2831   #1E2831
-
-client.background       #FFFFFF
 
 bar {
-    status_command ty3status --config /home/cdowner/.config/ty3status/config.yaml
+    status_command ty3status --config ~/.config/ty3status/config.yaml
     position top
+
+    colors {
+        background #292f36
+        statusline #292f36
+        separator #b4bab4
+
+        focused_workspace  #4ecdc4 #4ecdc4 #222222
+        active_workspace   #b4bab4 #b4bab4 #222222
+        inactive_workspace #292f36 #292f36 #b4bab4
+        urgent_workspace   #ff6b6b #ff6b6b #ffffff
+    }
 }

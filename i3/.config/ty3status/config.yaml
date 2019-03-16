@@ -1,7 +1,7 @@
 defaults:
   ignoreError: true
   markup: pango
-  color: "#CCCCCC"
+  color: "#b4bab4"
 
 blocks:
 - type: module
