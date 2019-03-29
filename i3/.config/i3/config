@@ -30,8 +30,8 @@ bindsym $mod+w exec rofi -show window
 
 # Custom Key bindings
 bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec firefox
-bindsym $mod+c exec code ~/.config/i3/config
+bindsym $mod+Shift+Return exec chromium-browser
+bindsym $mod+c exec code ~/configs
 bindsym $mod+l exec i3lock
 
 # Kill focused window
