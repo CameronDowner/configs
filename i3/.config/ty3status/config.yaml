@@ -8,7 +8,7 @@ blocks:
   module: "/home/cdowner/projects/ty3status-module-countdown-to-date/lib/index.js"
   interval: 1
   params:
-    endDate: 2019-03-29T23:00:00
+    endDate: 2019-04-12T23:00:00
 
 - type: module
   module: battery
