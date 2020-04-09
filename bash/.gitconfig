@@ -17,7 +17,7 @@
 
 	# help
 	oops = reset --soft HEAD^
-	fresh = reset --hard HEAD
+	fresh = "!git reset --hard HEAD && rm $(git ls-files --others --exclude-standard)"
 	
 	# clean up
 	clean-local-branches = "!git branch --merged | egrep -v '(\\*|master)' | xargs git branch -d"
