@@ -1,11 +1,11 @@
 ! URxvt Customizations
 
-URxvt.font: xft:Input:antialias=false:pixelsize=11
+URxvt.font: xft:JetBrainsMono:antialias=true:pixelsize=13
 URxvt.internalBorder: 20
 
 URxvt.scrollBar: false
 
-urxvt*transparent: true
+
 urxvt*shading: 10
 
 URxvt.foreground: #DEDEDE

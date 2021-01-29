@@ -22,3 +22,6 @@
 	# clean up
 	clean-local-branches = "!git branch --merged | egrep -v '(\\*|master)' | xargs git branch -d"
 	clean-remote-branches = remote prune origin
+[user]
+	email = cameronfdowner@gmail.com
+	name = Cameron Downer
