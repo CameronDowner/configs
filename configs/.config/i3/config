@@ -13,6 +13,8 @@ focus_follows_mouse no
 exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/backgrounds/*
 exec --no-startup-id rofi -key-run $mod+d -key-window $mod+Shift+d -key-ssh $mod+Shift+s
 
+exec_always --no-startup-id ~/.config/polybar/launch.sh --docky
+
 exec --no-startup-id nm-applet
 
 #Core custom key bindings
@@ -94,19 +96,3 @@ bindsym $mod+Shift+0 move container to workspace $tag10
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-
-bar {
-    status_command ty3status --config ~/.config/ty3status/config.yaml
-    position top
-
-    colors {
-        background #292f36
-        statusline #292f36
-        separator #b4bab4
-
-        focused_workspace  #4ecdc4 #4ecdc4 #222222
-        active_workspace   #b4bab4 #b4bab4 #222222
-        inactive_workspace #292f36 #292f36 #b4bab4
-        urgent_workspace   #ff6b6b #ff6b6b #ffffff
-    }
-}
