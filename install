@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+
+from os import walk, path, symlink, remove
+from pathlib import Path
+from dataclasses import dataclass
+
+@dataclass
+class Dotfile:
+    source: str
+    target: str
+    target_dir: str
+
+def install():
+    print("Starting to setup symbolic links.")
+
+    dotfiles = []
+    for (dirpath, dirnames, filenames) in walk("configs"):
+        source_paths = [path.abspath(path.join(dirpath, filename)) for filename in filenames]
+        target_dir = path.join(Path.home(), path.relpath(dirpath, "configs"))
+        target_paths = [path.join(target_dir, filename) for filename in filenames]
+
+        dotfiles.extend([Dotfile(source=source, target=target, target_dir=target_dir) for (source, target) in zip(source_paths, target_paths)])
+    
+    print("Found", len(dotfiles), "dotfiles")
+
+    for dotfile in dotfiles:
+        Path(dotfile.target_dir).mkdir(parents=True, exist_ok=True)
+        if path.islink(dotfile.target):
+            remove(dotfile.target)
+
+        symlink(dotfile.source, dotfile.target)
+    
+    print("Finished setting up symbolic links.")
+
+
+if __name__ == "__main__":
+    install()

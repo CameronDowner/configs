@@ -3,7 +3,8 @@ font pango:Input Mono 9
 # set mod as windows key
 set $mod Mod4
 
-new_window 1pixel # removes bar at the top of the windows
+for_window [class=".*"] border pixel 0
+gaps inner 15
 focus_follows_mouse no
 
 # Start-up programs
@@ -19,9 +20,6 @@ exec --no-startup-id battery-notification
 bindsym $mod+F9 exec xbacklight -inc 20
 bindsym $mod+F8 exec xbacklight -dec 20
 bindsym Print exec scrot -e 'mv $f ~/.'
-
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 2%+
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 2%-
 
 # Rofi bindings
 bindsym $mod+d exec rofi -show run
