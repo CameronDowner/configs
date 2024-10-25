@@ -4,10 +4,10 @@
 	autocrlf = input
 [alias]
 	# shortcuts
+	s = switch
 	st = status
 	a = add
-	cm = checkout master
-	
+
 	# plurals
 	branches = branch -a
 	stashes = stash list
@@ -18,10 +18,10 @@
 	# help
 	oops = reset --soft HEAD^
 	fresh = "!git reset --hard HEAD && rm $(git ls-files --others --exclude-standard)"
-	
+	sv = "!git stash && git ss && git pull && git clean-all"
+
 	# clean up
-	clean-local-branches = "!git branch --merged | egrep -v '(\\*|master)' | xargs git branch -d"
+	clean-local-branches = "!git branch --merged | egrep -v '(\\*|trunk|main|master)' | xargs git branch -d"
 	clean-remote-branches = remote prune origin
-[user]
-	email = cameronfdowner@gmail.com
-	name = Cameron Downer
+	clean-all = "!git clean-remote-branches && git clean-local-branches"
+	uush = !git push origin \"$(git symbolic-ref --short HEAD)\"
